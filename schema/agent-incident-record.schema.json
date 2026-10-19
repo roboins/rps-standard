@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://roboins.org/schema/rps-1/v0.1/agent-incident-record.schema.json",
+  "title": "Agent Incident Record (AIR)",
+  "description": "Draft v0.1 of the Agent Incident Record defined in RPS-1 Section 8. Working draft for public comment; fields and enumerations are provisional.",
+  "type": "object",
+  "required": ["rps_version", "record_id", "system", "responsible_party", "action", "trigger", "evidence", "status"],
+  "additionalProperties": false,
+  "properties": {
+    "rps_version": {
+      "description": "Version of RPS this record follows.",
+      "const": "0.1"
+    },
+    "record_id": {
+      "description": "Registry identifier, AIR-YYYY-NNNNNN.",
+      "type": "string",
+      "pattern": "^AIR-[0-9]{4}-[0-9]{6}$"
+    },
+    "system": {
+      "description": "The system involved and its RPS profile at the time of the incident.",
+      "type": "object",
+      "required": ["class", "profile"],
+      "additionalProperties": false,
+      "properties": {
+        "class": {
+          "description": "RPS system class: 1 AI & Software Agents, 2 Industrial & Logistics Robotics, 3 Next-Gen Automated Systems.",
+          "type": "integer",
+          "enum": [1, 2, 3]
+        },
+        "fleet_id": {
+          "description": "Pseudonymous identifier of the fleet, if the system belongs to one.",
+          "type": "string"
+        },
+        "profile": { "$ref": "#/$defs/profile" }
+      }
+    },
+    "responsible_party": {
+      "description": "Who stands behind the system. Pseudonymised in public data.",
+      "type": "object",
+      "required": ["id"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "description": "Pseudonymous identifier of the operator or responsible party." },
+        "role": { "type": "string", "enum": ["operator", "manufacturer", "integrator", "other"] }
+      }
+    },
+    "action": {
+      "description": "Q1: what did the system do?",
+      "type": "object",
+      "required": ["occurred_at", "description"],
+      "additionalProperties": false,
+      "properties": {
+        "occurred_at": { "type": "string", "format": "date-time" },
+        "description": { "type": "string" },
+        "context": { "type": "string" }
+      }
+    },
+    "trigger": {
+      "description": "Q4: what failed? The RPS trigger and observed values.",
+      "type": "object",
+      "required": ["id"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": ["T-A1", "T-A2", "T-A3", "T-A4", "T-R1", "T-R2", "T-R3", "T-X1", "T-X2", "T-X3", "T-X4", "T-F1"]
+        },
+        "observed": {
+          "description": "Observed values relevant to the trigger, as key/value pairs.",
+          "type": "object",
+          "additionalProperties": { "type": ["number", "string", "boolean"] }
+        },
+        "loss_estimate": { "$ref": "#/$defs/money" }
+      }
+    },
+    "evidence": {
+      "description": "Q5: who confirmed it?",
+      "type": "object",
+      "required": ["log_level"],
+      "additionalProperties": false,
+      "properties": {
+        "log_level": { "type": "string", "enum": ["G0", "G1", "G2", "G3"] },
+        "attestation": { "type": "string", "enum": ["none", "TPM", "TEE", "other"] },
+        "time_source": { "type": "string", "enum": ["PTP", "GNSS", "NTP", "other"] },
+        "timestamp_token": { "type": "string", "description": "RFC 3161 timestamp token or reference to it." },
+        "oracles": {
+          "type": "object",
+          "required": ["confirmed", "total"],
+          "additionalProperties": false,
+          "properties": {
+            "confirmed": { "type": "integer", "minimum": 0 },
+            "total": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "calculation_agent": { "type": "string", "description": "Pseudonymous identifier of the calculation agent." },
+        "journal_ref": { "type": "string", "description": "Optional reference to a tamper-evident journal entry (for example a ledger transaction). Not a source of truth." }
+      }
+    },
+    "outcome": {
+      "description": "Q6: what happened next?",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "containment": { "type": "string" },
+        "payout": { "$ref": "#/$defs/money" },
+        "corrective_action": { "type": "string" }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["reported", "under_review", "confirmed", "disputed", "rejected", "closed"]
+    },
+    "dispute_window_ends": { "type": "string", "format": "date" }
+  },
+  "$defs": {
+    "money": {
+      "type": "object",
+      "required": ["amount", "currency"],
+      "additionalProperties": false,
+      "properties": {
+        "amount": { "type": "number", "minimum": 0 },
+        "currency": { "type": "string", "pattern": "^[A-Z]{3}$" }
+      }
+    },
+    "profile": {
+      "description": "Core Parameter Matrix (RPS-1 Section 5). Q2 (mandate) and Q3 (provenance) are answered here.",
+      "type": "object",
+      "required": ["AUT", "MAN", "ENV", "OVS", "PRV", "LOG"],
+      "additionalProperties": false,
+      "properties": {
+        "AUT": { "type": "string", "enum": ["L0", "L1", "L2", "L3", "L4", "L5"] },
+        "MAN": {
+          "description": "Mandate limits. Structure is provisional.",
+          "type": "object",
+          "properties": {
+            "payment_limit": { "$ref": "#/$defs/money" },
+            "access": { "type": "array", "items": { "type": "string" } },
+            "max_force_n": { "type": "number", "minimum": 0 },
+            "max_speed_m_s": { "type": "number", "minimum": 0 }
+          }
+        },
+        "KIN": {
+          "description": "Kinetic potential. Omit for pure software agents.",
+          "type": "object",
+          "properties": {
+            "mass_kg": { "type": "number", "minimum": 0 },
+            "max_energy_j": { "type": "number", "minimum": 0 }
+          }
+        },
+        "ENV": { "type": "string", "enum": ["E1", "E2", "E3"] },
+        "OVS": {
+          "type": "object",
+          "required": ["mode"],
+          "properties": {
+            "mode": { "type": "string", "enum": ["in_the_loop", "on_the_loop", "after_the_fact"] },
+            "time_to_stop_s": { "type": "number", "minimum": 0 }
+          }
+        },
+        "PRV": {
+          "type": "object",
+          "properties": {
+            "base_model": { "type": "string" },
+            "model_version": { "type": "string" },
+            "vendor": { "type": "string" },
+            "software_build": { "type": "string" }
+          }
+        },
+        "EVL": {
+          "description": "References to tests and conformity evidence.",
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "LOG": { "type": "string", "enum": ["G0", "G1", "G2", "G3"] }
+      }
+    }
+  }
+}

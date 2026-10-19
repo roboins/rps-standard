@@ -1,0 +1,49 @@
+{
+  "rps_version": "0.1",
+  "record_id": "AIR-2026-000001",
+  "system": {
+    "class": 1,
+    "profile": {
+      "AUT": "L3",
+      "MAN": {
+        "payment_limit": { "amount": 5000, "currency": "CHF" },
+        "access": ["payments_api", "supplier_portal"]
+      },
+      "ENV": "E1",
+      "OVS": { "mode": "on_the_loop", "time_to_stop_s": 30 },
+      "PRV": {
+        "base_model": "[vendor/model]",
+        "model_version": "2026-09-30",
+        "vendor": "[vendor]",
+        "software_build": "procure-agent 1.4.2"
+      },
+      "EVL": ["internal red-teaming report 2026-08"],
+      "LOG": "G3"
+    }
+  },
+  "responsible_party": { "id": "OP-7f3a91", "role": "operator" },
+  "action": {
+    "occurred_at": "2026-10-02T14:21:07Z",
+    "description": "Procurement agent executed a supplier payment above its authorised limit.",
+    "context": "Fictional example for illustration only. Not a real incident."
+  },
+  "trigger": {
+    "id": "T-A1",
+    "observed": { "payment_chf": 18400, "limit_chf": 5000 },
+    "loss_estimate": { "amount": 13400, "currency": "CHF" }
+  },
+  "evidence": {
+    "log_level": "G3",
+    "attestation": "TEE",
+    "time_source": "PTP",
+    "timestamp_token": "[RFC 3161 token reference]",
+    "oracles": { "confirmed": 3, "total": 4 },
+    "calculation_agent": "CA-01"
+  },
+  "outcome": {
+    "containment": "Agent paused; payment recalled with the bank.",
+    "corrective_action": "Hard limit enforced at payment gateway level."
+  },
+  "status": "confirmed",
+  "dispute_window_ends": "2026-10-16"
+}
