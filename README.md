@@ -1,5 +1,7 @@
 # RPS: Robo Parametric Standard
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23476665.svg)](https://doi.org/10.5281/zenodo.23476665)
+
 An open parametric risk standard for AI agents and robotics, published by the **RoboIns Association** (in formation), Zug, Switzerland.
 
 > **Status: RPS-1 v0.1 Working Draft for public comment.** Prepared by the founders, not yet peer reviewed or tested in pilots. All thresholds and scales are provisional.
@@ -32,7 +34,9 @@ Open an issue in this repository or write to **info@roboins.org**. Section 11 of
 
 ## How to cite
 
-> Parov, D., & Yaremchuk, I. (2026). *RPS-1: Robo Parametric Standard, Version 0.1 (Working Draft).* RoboIns Association (in formation), Zug, Switzerland. https://roboins.org
+> Parov, D., & Yaremchuk, I. (2026). *RPS-1: Robo Parametric Standard, Version 0.1 (Working Draft).* RoboIns Association (in formation), Zug, Switzerland. https://doi.org/10.5281/zenodo.23476666
+
+DOI for all versions (always resolves to the latest): [10.5281/zenodo.23476665](https://doi.org/10.5281/zenodo.23476665).
 
 ## License
 

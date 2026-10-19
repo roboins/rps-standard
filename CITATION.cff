@@ -3,6 +3,7 @@ message: "If you use or refer to this standard, please cite it as below."
 type: dataset
 title: "RPS-1: Robo Parametric Standard, Version 0.1 (Working Draft)"
 version: "0.1"
+doi: 10.5281/zenodo.23476666
 date-released: 2026-10-19
 license: CC-BY-4.0
 url: "https://roboins.org"
