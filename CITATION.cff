@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use or refer to this standard, please cite it as below."
+type: dataset
+title: "RPS-1: Robo Parametric Standard, Version 0.1 (Working Draft)"
+version: "0.1"
+date-released: 2026-10-19
+license: CC-BY-4.0
+url: "https://roboins.org"
+repository-code: "https://github.com/roboins/rps-standard"
+authors:
+  - family-names: Parov
+    given-names: Dimitar
+    affiliation: "RoboIns Association (in formation)"
+  - family-names: Yaremchuk
+    given-names: Illia
+    affiliation: "RoboIns Association (in formation)"
+keywords:
+  - AI safety
+  - robotics
+  - insurance
+  - parametric insurance
+  - standard
+  - AI agents
+  - incident reporting
