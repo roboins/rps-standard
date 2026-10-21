@@ -1,6 +1,6 @@
 # Manifesto: Accountability for Autonomous Systems
 
-**RoboIns Association (in formation), Zug, Switzerland**
+**RoboIns Association, Zug, Switzerland**
 **First published:** 2026-10-19
 **Authors:** Dimitar Parov, Illia Yaremchuk
 

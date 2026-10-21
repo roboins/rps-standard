@@ -2,7 +2,7 @@
 
 ## RPS-1 v0.1 (Working Draft), 2026-10-19
 
-First public draft, prepared by the founders of the RoboIns Association (in formation) for public comment.
+First public draft, prepared by the founders of the RoboIns Association for public comment.
 
 - System classes 1–3 and fleet risk.
 - Core Parameter Matrix with eight parameters; provisional scales for AUT, ENV, OVS and LOG.

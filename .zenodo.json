@@ -2,10 +2,10 @@
   "title": "RPS-1: Robo Parametric Standard, Version 0.1 (Working Draft)",
   "upload_type": "publication",
   "publication_type": "workingpaper",
-  "description": "First public working draft of RPS-1, the Robo Parametric Standard: an open parametric risk standard for AI agents and robotics, published for public comment. It defines system classes, a Core Parameter Matrix, a trigger library, oracle and evidence requirements, the Agent Incident Record (with JSON schema) and certification levels. Prepared by the founders of the RoboIns Association (in formation), Zug, Switzerland. Not peer reviewed; all thresholds are provisional.",
+  "description": "First public working draft of RPS-1, the Robo Parametric Standard: an open parametric risk standard for AI agents and robotics, published for public comment. It defines system classes, a Core Parameter Matrix, a trigger library, oracle and evidence requirements, the Agent Incident Record (with JSON schema) and certification levels. Prepared by the founders of the RoboIns Association, Zug, Switzerland. Not peer reviewed; all thresholds are provisional.",
   "creators": [
-    {"name": "Parov, Dimitar", "affiliation": "RoboIns Association (in formation)"},
-    {"name": "Yaremchuk, Illia", "affiliation": "RoboIns Association (in formation)"}
+    {"name": "Parov, Dimitar", "affiliation": "RoboIns Association"},
+    {"name": "Yaremchuk, Illia", "affiliation": "RoboIns Association"}
   ],
   "license": "cc-by-4.0",
   "access_right": "open",

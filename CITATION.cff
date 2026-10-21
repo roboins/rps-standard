@@ -11,10 +11,10 @@ repository-code: "https://github.com/roboins/rps-standard"
 authors:
   - family-names: Parov
     given-names: Dimitar
-    affiliation: "RoboIns Association (in formation)"
+    affiliation: "RoboIns Association"
   - family-names: Yaremchuk
     given-names: Illia
-    affiliation: "RoboIns Association (in formation)"
+    affiliation: "RoboIns Association"
 keywords:
   - AI safety
   - robotics

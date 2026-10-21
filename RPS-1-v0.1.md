@@ -4,7 +4,7 @@
 **Status:** Draft for public comment. Not a normative standard.
 **Date of first publication:** 2026-10-19
 **Authors:** Dimitar Parov, Illia Yaremchuk
-**Publisher:** RoboIns Association (in formation), Zug, Switzerland
+**Publisher:** RoboIns Association, Zug, Switzerland
 **Website:** https://roboins.org
 **Contact:** info@roboins.org
 **License:** Text CC BY 4.0; JSON schema Apache License 2.0
@@ -13,7 +13,7 @@
 
 ## Status of this document
 
-This is the first public working draft of RPS-1. It was prepared by the founders of the RoboIns Association (in formation) to open a public discussion. It has **not** been peer reviewed, tested in pilots or approved by any technical council, and it does not yet reflect input from insurers, operators, researchers or regulators.
+This is the first public working draft of RPS-1. It was prepared by the founders of the RoboIns Association to open a public discussion. It has **not** been peer reviewed, tested in pilots or approved by any technical council, and it does not yet reflect input from insurers, operators, researchers or regulators.
 
 All thresholds, scales, trigger definitions and certification criteria in this draft are **provisional**. Values marked `TBD` or `[to be calibrated]` are intentionally left open and will be set using pilot data and public consultation. Nothing in this document is based on proprietary loss statistics, because no such statistics yet exist for the systems it covers; producing them is one of the purposes of the standard.
 
@@ -240,8 +240,8 @@ The following questions are explicitly open for comment:
 
 ## How to cite
 
-> Parov, D., & Yaremchuk, I. (2026). *RPS-1: Robo Parametric Standard, Version 0.1 (Working Draft).* RoboIns Association (in formation), Zug, Switzerland. https://roboins.org
+> Parov, D., & Yaremchuk, I. (2026). *RPS-1: Robo Parametric Standard, Version 0.1 (Working Draft).* RoboIns Association, Zug, Switzerland. https://roboins.org
 
 ---
 
-© 2026 Dimitar Parov, Illia Yaremchuk. Published by RoboIns Association (in formation). Text licensed under CC BY 4.0.
+© 2026 Dimitar Parov, Illia Yaremchuk. Published by RoboIns Association. Text licensed under CC BY 4.0.
